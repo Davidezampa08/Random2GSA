@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #nomeComponente {
+            font-size: 50px; 
+            margin-top: 20px;
+            text-align: center;
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+<h1>O sito delle mie brame chi sara' a finire nelle grinfie del prof del reame? </h1>
+
+
+<audio id="tamburiAudio" src="https://copaso.duckdns.org/~zampicinini-davide/estrai/rullo.mp3"></audio>
+
+<button onclick="eseguiRulloETrovaNome()">Estrai</button>
+
+<div id="nomeComponente"></div>
+
+<script>
+    var nomiComponenti = [
+        "Leonardo Albertini", "Riccardo Andreis", "Riccardo Badari",
+        "Riccardo Bombieri", "Lorenzo Boscaini", "Edoardo Canteri", "Sofia Carrarini", "Enea Fabbro",
+        "Federico Gardoni", "Giacomo Michelangelo Santiago Girardi", "Giorgia Grazioli", "Federico Guarnieri",
+        "Massimiliano Lonardoni", "Gabriele Merzi", "Emma Milani", "Diego Mori", "Martina Musciotto",
+        "Camilla Sandrini", "Elia Marin Storti", "Emma Tornieri", "Simone Tosi", "Filippo Valbusa",
+        "Lorenzo Raffaele Vurro", "Cesare Zuffolato", "Davide Zampicinini"
+    ];
+
+    function eseguiRulloETrovaNome() {
+       
+        var audio = document.getElementById("tamburiAudio");
+        audio.play();
+
+        
+        document.querySelector('button').style.display = 'none';
+
+        
+        document.getElementById("nomeComponente").style.display = 'none';
+
+        
+        setTimeout(function () {
+            
+            audio.pause();
+            audio.currentTime = 0;
+
+            var nomeCasuale = nomiComponenti[Math.floor(Math.random() * nomiComponenti.length)];
+            document.getElementById("nomeComponente").innerHTML = nomeCasuale;
+
+            
+            document.getElementById("nomeComponente").style.display = 'block';
+
+            
+            document.querySelector('button').style.display = 'block';
+        }, 5000);
+    }
+</script>
+
+</body>
+</html>
